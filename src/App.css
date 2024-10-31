@@ -15,3 +15,10 @@
   left: 0;
   z-index: -1;
 }
+
+.content {
+  position: relative;
+  z-index: 1; /* Ensures content is above particles */
+  color: black;
+  text-align: center;
+}

@@ -1,14 +1,13 @@
 body {
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Rockwell', 'Courier Bold', 'Courier', 'Georgia', 'Times', 'Times New Roman', 'serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(-20deg, rgb(233, 222, 250) 0%, rgb(251, 252, 219) 100%);
+  background: radial-gradient(circle at 10% 20%, rgb(137, 210, 253) 0%, rgb(255, 241, 188) 90%);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 button {

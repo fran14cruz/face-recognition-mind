@@ -1,32 +1,60 @@
+import React, { Component } from 'react';
 import './App.css';
-import Particles from '@tsparticles/react';
-
 import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
+import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import ParticlesCmp from './components/ParticlesCmp/ParticlesCmp';
+//import Clarifai from 'clarifai';
 
-const particlesOptions = {
-  polygon: {
-      enable: true,
-      type: 'inside',
-      move: { radius: 10 },
-      url: 'path/to/svg.svg'
+// const app = new Clarifai.App({
+//   apiKey: '105b4021b51a4fc1a9e02031329bddc9'
+//  });
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      input: '',
+
+    }
   }
-}
 
-function App() {
+  onInputChange = (event) => {
+
+  }
+
+  onButtonSubmit = () => {
+    console.log('hey');
+    // app.models.predict("105b4021b51a4fc1a9e02031329bddc9", "https://samples.clarifai.com/face-det.jpg").then(
+    //   function(response) {
+    //     console.log(response);
+    //   },
+    //   function(error) {
+
+    //   }
+    // );
+  }
+
+  render() {
   return (
     <div className='App'>
-      <Particles classNname='particles'
-        params={particlesOptions} />
-      <Navigation />
-      <Logo />
-      <Rank />
-      <ImageLinkForm />
-      {/*<FaceRecognition /> */}
+      <ParticlesCmp className='particles' />
+      <div className='content'>
+        <Navigation />
+        <Logo />
+        <Rank />
+        <ImageLinkForm
+          onInputChange={this.onInputChange}
+          onButtonSubmit={this.onButtonSubmit}
+        />
+        <FaceRecognition />
+      </div>
+
     </div>
-  );
+  );    
+  }
 }
 
 export default App;
