@@ -18,7 +18,7 @@ class App extends Component {
     super();
     this.state = {
       input: '',
-
+      route: 'signin'
     }
   }
 
@@ -38,22 +38,27 @@ class App extends Component {
     // );
   }
 
+  onRouteChange = (route) => {
+    this.setState({ route: route });
+  }
+
   render() {
   return (
     <div className='App'>
       <ParticlesCmp className='particles' />
-      <div className='content'>
-        <Navigation />
-        <Signin />
-        <Logo />
-        <Rank />
-        <ImageLinkForm
-          onInputChange={this.onInputChange}
-          onButtonSubmit={this.onButtonSubmit}
-        />
-        <FaceRecognition />
-      </div>
-
+      <Navigation onRouteChange={this.onRouteChange}/>
+      { this.state.route === 'signin'
+        ? <Signin onRouteChange={this.onRouteChange} />
+        : <div>
+            <Logo /> 
+            <Rank />
+            <ImageLinkForm
+              onInputChange={this.onInputChange}
+              onButtonSubmit={this.onButtonSubmit}
+            />
+            <FaceRecognition />
+        </div>
+      }
     </div>
   );    
   }
