@@ -5,6 +5,7 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import Signin from './components/Signin/Signin';
 import ParticlesCmp from './components/ParticlesCmp/ParticlesCmp';
 //import Clarifai from 'clarifai';
 
@@ -43,6 +44,7 @@ class App extends Component {
       <ParticlesCmp className='particles' />
       <div className='content'>
         <Navigation />
+        <Signin />
         <Logo />
         <Rank />
         <ImageLinkForm
