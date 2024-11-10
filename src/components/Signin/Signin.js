@@ -31,6 +31,8 @@ class Signin extends React.Component {
       .then(data => {
         if (data === 'success') {
           this.props.onRouteChange('home');
+        } else {
+          alert('Wrong email/password');
         }
       })
   }
