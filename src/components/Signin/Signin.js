@@ -17,7 +17,7 @@ class Signin extends React.Component {
     this.setState({ signInPassword: event.target.value });
   }
 
-  onSubmitSignIn = () => {
+  onSubmitSignIn = () => {console.log(this.state);
     // send to server with a POST
     fetch('http://localhost:3000/signin', {
       method: 'post',
@@ -28,8 +28,9 @@ class Signin extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(data => {
-        if (data === 'success') {
+      .then(user => {
+        if (user.id) {
+          this.props.loadUser(user);
           this.props.onRouteChange('home');
         } else {
           alert('Wrong email/password');
