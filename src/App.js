@@ -8,11 +8,6 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Signin from './components/Signin/Signin';
 import Registration from './components/Registration/Registration';
 import ParticlesCmp from './components/ParticlesCmp/ParticlesCmp';
-//import Clarifai from 'clarifai';
-
-// const app = new Clarifai.App({
-//   apiKey: '105b4021b51a4fc1a9e02031329bddc9'
-//  });
 
 const initialState = {
   input: '',
@@ -35,20 +30,55 @@ class App extends Component {
     this.state = initialState;
   }
 
-  onInputChange = (event) => {
+  calculateFaceLocation = (data) => {
+    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+    const image = document.getElementById('inputimage');
+    const width = Number(image.width);
+    const height = Number(image.height);
+    return {
+      leftCol: clarifaiFace.left_col * width,
+      topRow: clarifaiFace.top_row * height,
+      rightCol: width - (clarifaiFace.right_col * width),
+      bottomRow: height - (clarifaiFace.bottom_row * height)
+    }
+  }
 
+  displayFaceBox = (box) => {
+    this.setState({box: box});
+  }
+
+  onInputChange = (event) => {
+    this.setState({input: event.target.value});
   }
 
   onButtonSubmit = () => {
-    console.log('hey');
-    // app.models.predict("105b4021b51a4fc1a9e02031329bddc9", "https://samples.clarifai.com/face-det.jpg").then(
-    //   function(response) {
-    //     console.log(response);
-    //   },
-    //   function(error) {
-
-    //   }
-    // );
+    this.setState({imageUrl: this.state.input});
+      fetch('http://localhost:3000/imageurl', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          input: this.state.input
+        })
+      })
+      .then(response => response.json())
+      .then(response => {
+        if (response) {
+          fetch('http://localhost:3000/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(response => response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user, { entries: count }))
+            })
+            .catch(console.log)
+        }
+        this.displayFaceBox(this.calculateFaceLocation(response))
+      })
+      .catch(err => console.log(err));
   }
 
   onRouteChange = (route) => {
