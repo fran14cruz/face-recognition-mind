@@ -7,7 +7,7 @@ import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Signin from './components/Signin/Signin';
 import Registration from './components/Registration/Registration';
-import ParticlesCmp from './components/ParticlesCmp/ParticlesCmp';
+import ParticlesBg from 'particles-bg'
 
 const initialState = {
   input: '',
@@ -101,20 +101,26 @@ class App extends Component {
   }
 
   render() {
-    const { isSignedIn, route } = this.state;
+    const { isSignedIn, route, imageUrl, box } = this.state;
     return (
       <div className='App'>
-        <ParticlesCmp className='particles' />
+        <ParticlesBg type='circle' bg={true} />
         <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}/>
         { route === 'home'
           ? <div>
               <Logo /> 
-              <Rank />
+              <Rank
+                name={this.state.user.name}
+                entries={this.state.user.entries}
+              />
               <ImageLinkForm
                 onInputChange={this.onInputChange}
                 onButtonSubmit={this.onButtonSubmit}
               />
-              <FaceRecognition />
+              <FaceRecognition
+                box={box}
+                imageUrl={imageUrl}
+              />
             </div>
           : (
             route === 'signin'
