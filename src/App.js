@@ -14,23 +14,25 @@ import ParticlesCmp from './components/ParticlesCmp/ParticlesCmp';
 //   apiKey: '105b4021b51a4fc1a9e02031329bddc9'
 //  });
 
+const initialState = {
+  input: '',
+  route: 'signin',
+  isSignedIn: false,
+  imageUrl: '',
+  box: {},
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    entries: 0,
+    joined: ''
+  }
+}
+
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: '',
-      route: 'signin',
-      isSignedIn: false,
-      imageUrl: '',
-      box: {},
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    }
+    this.state = initialState;
   }
 
   onInputChange = (event) => {
@@ -51,7 +53,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState({ isSignedIn: false });
+      this.setState(initialState);
     } else if (route === 'home') {
       this.setState({ isSignedIn: true });
     }

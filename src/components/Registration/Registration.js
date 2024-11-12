@@ -35,13 +35,16 @@ class Registration extends React.Component {
     })
       .then(response => response.json())
       .then(user => {
-        if (user) {
+        if (user.id) {
           console.log(user);
           this.props.loadUser(user);
           this.props.onRouteChange('home');
         } else {
-          alert('Enter fields');
+          alert('Impossible to register');
         }
+      })
+      .catch(err => {
+        console.log(err);
       })
   }
 
