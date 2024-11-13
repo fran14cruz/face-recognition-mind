@@ -24,7 +24,7 @@ class Registration extends React.Component {
 
   onSubmitSignUp = () => {
     // send to server with a POST
-    fetch('http://localhost:3000/register', {
+    fetch('https://floating-bastion-03242-d25d7add1355.herokuapp.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
