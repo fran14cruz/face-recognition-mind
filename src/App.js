@@ -7,7 +7,7 @@ import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Signin from './components/Signin/Signin';
 import Registration from './components/Registration/Registration';
-import ParticlesBg from 'particles-bg'
+import ParticlesBg from 'particles-bg';
 
 const initialState = {
   input: '',
@@ -53,7 +53,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('https://exciting-loud-goal.glitch.me/imageurl', {
+      fetch(process.env.REACT_APP_API_URL + '/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -63,7 +63,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('https://exciting-loud-goal.glitch.me/image', {
+          fetch(process.env.REACT_APP_API_URL + '/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

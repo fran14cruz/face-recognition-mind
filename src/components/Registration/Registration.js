@@ -24,7 +24,7 @@ class Registration extends React.Component {
 
   onSubmitSignUp = () => {
     // send to server with a POST
-    fetch('https://exciting-loud-goal.glitch.me/register', {
+    fetch(process.env.REACT_APP_API_URL + '/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

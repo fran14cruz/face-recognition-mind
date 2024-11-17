@@ -17,9 +17,9 @@ class Signin extends React.Component {
     this.setState({ signInPassword: event.target.value });
   }
 
-  onSubmitSignIn = () => {console.log(this.state);
+  onSubmitSignIn = () => {
     // send to server with a POST
-    fetch('https://exciting-loud-goal.glitch.me/signin', {
+    fetch(process.env.REACT_APP_API_URL + '/signin', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
