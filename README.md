@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Face-Recognition-Mind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Face-Recognition-Mind** is the frontend application for the **Face-Recognition-Mind-API**, providing an intuitive interface for users to recognize faces in submitted images. This application is built with React and currently uses **class components**, with plans to migrate to **React Hooks** in a future update.
 
-## Available Scripts
+Take a look at the deployed version of the application [here](https://face-recognition-mind.vercel.app/).
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Authentication:** Users can sign in or register accounts.
+- **Face Detection:** Upload an image URL to detect and highlight faces in the image.
+- **User Ranking System:** Tracks the number of images analyzed by each user.
+- **Particles Background:** Animated visual effects using the `particles-bg` library.
+- **Modular Components:** Clean and reusable React components for easy maintenance.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React** (Class Components)
+- **Particles-bg** for animated background
+- **Custom CSS** for styling: tachyons
+- **API Integration:** Works with the Face-Recognition-Mind-API for backend operations
+- **Clarifai API** for face recognition
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/face-recognition-mind.git
+   cd face-recognition-mind
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start the application:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Open the application in your browser:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```plaintext
+   http://localhost:3000
+   ```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Sign In or Register: Access the application by signing in or registering an account.
+2. Submit an Image:
+  - Copy the URL of an image containing faces.
+  - Paste the URL in the input field on the homepage.
+  - Click the Detect button to analyze the image.
+3. View Results: Detected faces will be highlighted with bounding boxes.
+4. Track Progress: Your rank (based on the number of images analyzed) will be updated in real time.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
+```plaintext
+src/
+├── App.css              // Styles for the app
+├── App.js               // Main React component
+├── components/          // React components
+│   ├── FaceRecognition/ // Component for displaying detected faces
+│   ├── ImageLinkForm/   // Input form for image URLs
+│   ├── Logo/            // Logo component
+│   ├── Navigation/      // Navigation bar
+│   ├── Rank/            // User rank display
+│   ├── Registration/    // Registration form
+│   └── Signin/          // Sign-in form
+└── index.js             // Entry point
+```
 
-### Code Splitting
+## Screenshots
+1. [Sign-In Page](src/static/signin.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. [Registration Page](src/static/registration.png)
 
-### Analyzing the Bundle Size
+3. [Home Page](src/static/home-after.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Future Plans
+- Migrate to React Hooks for better state management and cleaner code.
+- Improved Styling using modern CSS frameworks or libraries.
+- Enhanced Image Handling:
+  - Allow file uploads (not just URLs).
+  - Add error handling for invalid URLs.
+- Real-Time Detection: Display face detection as the image loads.
 
-### Making a Progressive Web App
+### Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
