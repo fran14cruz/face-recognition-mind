@@ -79,11 +79,11 @@ src/
 ```
 
 ## Screenshots
-1. [Sign-In Page](src/static/signin.png)
+1. ![Sign-In Page](src/static/signin.png)
 
-2. [Registration Page](src/static/registration.png)
+2. ![Registration Page](src/static/registration.png)
 
-3. [Home Page](src/static/home-after.png)
+3. ![Home Page](src/static/home-after.png)
 
 ### Future Plans
 - Migrate to React Hooks for better state management and cleaner code.
