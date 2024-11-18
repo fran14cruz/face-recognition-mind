@@ -19,7 +19,7 @@ class Signin extends React.Component {
 
   onSubmitSignIn = () => {
     // send to server with a POST
-    fetch(process.env.REACT_APP_API_URL + '/signin', {
+    fetch('https://facerecognition-api-roan.vercel.app/signin', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

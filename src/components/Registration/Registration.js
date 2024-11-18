@@ -24,7 +24,7 @@ class Registration extends React.Component {
 
   onSubmitSignUp = () => {
     // send to server with a POST
-    fetch(process.env.REACT_APP_API_URL + '/register', {
+    fetch('https://facerecognition-api-roan.vercel.app/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
